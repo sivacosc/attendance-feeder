@@ -1,0 +1,35 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (admin) { %>
+        <form class="add-admin-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="<%= admin.name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" name="department" id="department" value="<%= admin.departments_csv %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email_address">Email Address</label>
+                    <input type="email" class="form-control" name="email_address" id="email_address" value="<%= admin.email_address %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" name="password" id="password" value="<%= admin.credential_key %>" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Admin</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Admin Not Found. Go <a href="/add">here</a> to add admins.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
